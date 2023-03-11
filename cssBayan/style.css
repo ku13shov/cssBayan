@@ -22,6 +22,51 @@ a {
 }
 
 
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #add8e6;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 10px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.accordion__panel-title {
+    padding: 20px 40px 20px 15px;
+    cursor: pointer;
+    border: 2px solid;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    position: relative;
+}
+
+.accordion__panel-title::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-image: url("images/arrow.png");
+    background-size: contain;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.accordion__panel-content {
+    text-align: center;
+}
+
 .accordion__panel-img {
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
 }
