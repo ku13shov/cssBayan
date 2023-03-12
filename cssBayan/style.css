@@ -40,33 +40,83 @@ h1 {
     margin-bottom: 30px;
 }
 
-.accordion__panel-title {
+.accordion:hover ~ .accordion__panel-arrow {
+    opacity: 1;
+}
+
+.accordion__panel {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.accordion__panel-arrow {
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    width: 15px;
+    opacity: 0;
+    transition: all .4s linear;
+}
+
+.accordion__panel-btn {
     padding: 20px 40px 20px 15px;
     cursor: pointer;
     border: 2px solid;
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
-    position: relative;
-}
-
-.accordion__panel-title::after {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-image: url("images/arrow.png");
-    background-size: contain;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    text-align: left;
+    width: 100%;
 }
 
 .accordion__panel-content {
     text-align: center;
+    height: 0;
+    overflow: hidden;
+    transition: all .4s linear;
 }
 
 .accordion__panel-img {
     max-width: 500px;
     width: 100%;
+}
+
+.accordion:hover .accordion__panel-btn {
+    color: #008000;
+}
+
+.accordion__panel-btn:focus + .accordion__panel-content {
+    height: 500px;
+}
+
+.accordion__panel-btn:focus ~ .accordion__panel-arrow {
+    transform: rotate(90deg);
+    opacity: 1;
+} 
+
+.accordion__panel-btn:not(:focus) + .accordion__panel-content {
+    height: 0;
+}
+
+.accordion__panel-btn:hover + .accordion__panel-content {
+    height: 500px;
+}
+
+.accordion__panel-btn:hover ~ .accordion__panel-arrow {
+    transform: rotate(90deg);
+    opacity: 1;
+} 
+
+#content:hover {
+    height: 500px;
+    cursor: pointer;
+}
+
+#content:hover ~ .accordion__panel-arrow {
+    transform: rotate(90deg);
+    opacity: 1;
+}
+
+.accordion__panel-img:active ~ #content {
+    background-color: rgba(255,255,255,.5);
 }
